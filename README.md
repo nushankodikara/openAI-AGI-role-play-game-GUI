@@ -31,6 +31,8 @@ This will start the server on http://localhost:5137.
 
 To use the AGI role-playing game GUI, follow these steps:
 
+Goto the [Server Repository](https://github.com/nushankodikara/openAI-AGI-role-play-game) and follow the instructions.
+
 Open your web browser and go to http://localhost:5137.
 
 The game will start as soon as the page loads.
