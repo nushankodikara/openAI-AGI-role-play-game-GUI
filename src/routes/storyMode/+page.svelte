@@ -27,6 +27,9 @@
 	<Grid>
 		<Row>
 			<Column>
+				<ImageLoader src={form.image} alt="OpenAI AGI Role-Playing Game" aspectRatio="1x1" />
+			</Column>
+			<Column>
 				<Form method="post" action="/storyMode">
 					<FormGroup>
 						<TextArea
@@ -67,7 +70,7 @@
 					<FormGroup>
 						<ButtonSet>
 							<Button type="submit" icon={NextOutline}>Play Your Action</Button>
-							<Button href="/" icon={Restart}>New Game</Button>
+							<Button kind="secondary" href="/" icon={Restart}>New Game</Button>
 						</ButtonSet>
 					</FormGroup>
 				</Form>

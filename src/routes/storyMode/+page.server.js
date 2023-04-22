@@ -23,6 +23,16 @@ export const actions = {
 			})
 		}).then((r) => r.json());
 
+		const genImg = await fetch(`http://localhost:3000/image`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				prompt: nextLine.image
+			})
+		}).then((r) => r.json());
+
 		const playerHealth = minAndMax(nextLine.playerHealth);
 
 		let eHealth = {};
@@ -31,6 +41,7 @@ export const actions = {
 		}
 
 		const retObj = {
+			image: genImg.image_url,
 			story: nextLine.story,
 			playerHealth: playerHealth,
 			enemy: nextLine.enemy,

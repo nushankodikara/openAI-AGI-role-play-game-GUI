@@ -1,38 +1,50 @@
-# create-svelte
+# AGI Role-Playing Game GUI
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+This is a graphical user interface for the AGI role-playing game built using Svelte-kit.
 
-## Creating a project
+## Installation
 
-If you're seeing this, you've probably already done this step. Congrats!
+To install and run this project, you'll need to have Node.js and npm (Node Package Manager) installed on your system.
+
+Clone this repository:
 
 ```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
+git clone https://github.com/nushankodikara/openAI-AGI-role-play-game-GUI
+cd openAI-AGI-role-play-game-GUI
 ```
 
-## Developing
+Install the dependencies:
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+```bash
+npm install
+```
+
+Start the development server:
 
 ```bash
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
+This will start the server on http://localhost:5137.
 
-To create a production version of your app:
+## Usage
 
-```bash
-npm run build
-```
+To use the AGI role-playing game GUI, follow these steps:
 
-You can preview the production build with `npm run preview`.
+Open your web browser and go to http://localhost:5137.
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+The game will start as soon as the page loads.
+
+Use the drop-down menu to select your action, and click the "Submit" button to submit your action.
+
+The game will continue based on your action, and you'll see the results on the screen.
+
+## Contributing
+
+If you find a bug or have a feature request, please open an issue in this repository.
+
+If you'd like to contribute to this project, please fork this repository and submit a pull request.
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for more information.
