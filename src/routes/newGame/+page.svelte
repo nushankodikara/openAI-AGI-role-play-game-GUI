@@ -14,7 +14,6 @@
 		SelectItem,
 		Slider
 	} from 'carbon-components-svelte';
-	import GameConsole from 'carbon-icons-svelte/lib/GameConsole.svelte';
 	import NextOutline from 'carbon-icons-svelte/lib/NextOutline.svelte';
 	import Restart from 'carbon-icons-svelte/lib/Restart.svelte';
 
