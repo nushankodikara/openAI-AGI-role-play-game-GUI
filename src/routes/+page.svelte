@@ -8,18 +8,25 @@
 		ButtonSet,
 		Form,
 		FormGroup,
-		TextArea,
 		Select,
 		SelectItem,
-		ImageLoader,
-		Tile,
-		Slider
+		Tile
 	} from 'carbon-components-svelte';
 	import GameConsole from 'carbon-icons-svelte/lib/GameConsole.svelte';
-	import NextOutline from 'carbon-icons-svelte/lib/NextOutline.svelte';
-	import Restart from 'carbon-icons-svelte/lib/Restart.svelte';
 
-	export let data;
+	const types = [
+		'Avatar the last airbender',
+		'Star Wars',
+		'Transformers',
+		'Lord of the Rings',
+		'Harry Potter',
+		'The Matrix',
+		'The Terminator',
+		'The Hunger Games',
+		'The Chronicles of Narnia',
+		'The Walking Dead',
+		'Game of Thron'
+	];
 </script>
 
 <Content>
@@ -53,46 +60,18 @@
 				</Tile>
 			</Column>
 			<Column>
-				<Form method="post" action="/storyMode">
+				<Form method="post" action="/newGame">
 					<FormGroup>
-						<TextArea
-							value={data.story}
-							readonly
-							labelText="Game Notes"
-							placeholder="Let's begin your journey..."
-							rows={6}
-							name="story"
-						/>
-					</FormGroup>
-					<FormGroup>
-						<Slider
-							labelText="Your Health"
-							fullWidth
-							value={data.playerHealth.min}
-							max={data.playerHealth.max}
-						/>
-					</FormGroup>
-					{#if data.enemy}
-						<FormGroup>
-							<Slider
-								labelText="Enemy Health"
-								fullWidth
-								value={data.enemyHealth.min}
-								max={data.enemyHealth.max}
-							/>
-						</FormGroup>
-					{/if}
-					<FormGroup>
-						<Select labelText="What would you do?" name="option">
+						<Select labelText="What is your preffered style?" name="type" required>
 							<SelectItem text="Choose an option" disabled />
-							{#each data.options as option}
+							{#each types as option}
 								<SelectItem value={option} text={option} />
 							{/each}
 						</Select></FormGroup
 					>
 					<FormGroup>
 						<ButtonSet>
-							<Button type="submit" icon={NextOutline}>Play Your Action</Button>
+							<Button type="submit" icon={GameConsole}>Start New Game</Button>
 						</ButtonSet>
 					</FormGroup>
 				</Form>

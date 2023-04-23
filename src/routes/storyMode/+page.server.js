@@ -10,44 +10,64 @@ export const actions = {
 		const formData = await request.formData();
 		const option = formData.get('option');
 		const story = formData.get('story');
+		const type = formData.get('type');
 
-		//get next line post data
-		const nextLine = await fetch(`http://localhost:3000/chat`, {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify({
-				userResponse: option,
-				story: story
-			})
-		}).then((r) => r.json());
+		try {
+			if (!option || !story) {
+				console.log('Missing Form Data');
+				throw new Error('Missing Form Data');
+			}
 
-		const genImg = await fetch(`http://localhost:3000/image`, {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify({
-				prompt: nextLine.image
-			})
-		}).then((r) => r.json());
+			//get next line post data
+			const nextLine = await fetch(`http://localhost:3000/continueStory/${type}`, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({
+					userResponse: option,
+					story: story
+				})
+			}).then((r) => r.json());
 
-		const playerHealth = minAndMax(nextLine.playerHealth);
+			console.log(nextLine);
 
-		let eHealth = {};
-		if (nextLine.enemy) {
-			eHealth = minAndMax(nextLine.enemyHealth);
+			// const genImg = await fetch(`http://localhost:3000/image`, {
+			// 	method: 'POST',
+			// 	headers: {
+			// 		'Content-Type': 'application/json'
+			// 	},
+			// 	body: JSON.stringify({
+			// 		prompt: nextLine.image
+			// 	})
+			// }).then((r) => r.json());
+
+			const playerHealth = minAndMax(nextLine.playerHealth);
+
+			let eHealth = {};
+			if (nextLine.enemy) {
+				eHealth = minAndMax(nextLine.enemyHealth);
+			}
+
+			const retObj = {
+				// image: genImg.image_url,
+				story: nextLine.story,
+				playerHealth: playerHealth,
+				enemy: nextLine.enemy,
+				enemyHealth: eHealth,
+				options: nextLine.options,
+				type: type
+			};
+			return retObj;
+		} catch (e) {
+			console.log(e);
+
+			return {
+				error: true,
+				story: story,
+				option: option,
+				type: type
+			};
 		}
-
-		const retObj = {
-			image: genImg.image_url,
-			story: nextLine.story,
-			playerHealth: playerHealth,
-			enemy: nextLine.enemy,
-			enemyHealth: eHealth,
-			options: nextLine.options
-		};
-		return retObj;
 	}
 };
