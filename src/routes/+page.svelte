@@ -15,17 +15,34 @@
 	import GameConsole from 'carbon-icons-svelte/lib/GameConsole.svelte';
 
 	const types = [
+		'Alien',
 		'Avatar the last airbender',
-		'Star Wars',
-		'Transformers',
-		'Lord of the Rings',
+		'Back to the Future',
+		'Game of Thrones',
 		'Harry Potter',
+		'Indiana Jones',
+		'Jurassic Park',
+		'Lord of the Rings',
+		'Mad Max: Fury Road',
+		'Pirates of the Caribbean',
+		'Star Wars',
+		'The Chronicles of Narnia',
+		'The Hunger Games',
 		'The Matrix',
 		'The Terminator',
-		'The Hunger Games',
-		'The Chronicles of Narnia',
 		'The Walking Dead',
-		'Game of Thron'
+		'The player as Batman',
+		'The player as Captain America',
+		'The player as Flash',
+		'The player as Green Arrow',
+		'The player as Green Lantern',
+		'The player as Hulk',
+		'The player as Ironman',
+		'The player as Martian Manhunter',
+		'The player as Spiderman',
+		'The player as Superman',
+		'The player as Thor',
+		'Transformers'
 	];
 </script>
 
